@@ -235,7 +235,16 @@ async def get_user(user_id: str):
         user = await db.users.find_one({"user_id": user_id})
         if not user:
             return {"user_id": user_id, "bro_name": "Bro", "goals": [], "preferences": ""}
-        return user
+        
+        # Convert MongoDB document to JSON-serializable dict
+        user_dict = {
+            "user_id": user.get("user_id", user_id),
+            "bro_name": user.get("bro_name", "Bro"),
+            "goals": user.get("goals", []),
+            "preferences": user.get("preferences", ""),
+            "created_at": user.get("created_at").isoformat() if user.get("created_at") else None
+        }
+        return user_dict
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Get user error: {str(e)}")
 
