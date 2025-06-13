@@ -27,7 +27,9 @@ app.add_middleware(
 # MongoDB connection
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb://localhost:27017")
 DB_NAME = os.environ.get("DB_NAME", "brolife_database")
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "groq")
+LLM_MODEL = os.environ.get("LLM_MODEL", "llama3-70b-4096")
+LLM_API_KEY = os.environ.get("LLM_API_KEY")
 
 client = AsyncIOMotorClient(MONGO_URL)
 db = client[DB_NAME]
@@ -95,10 +97,10 @@ async def get_llm_response(message: str, user_id: str, bro_name: str = "Bro") ->
     try:
         session_id = f"brolife_{user_id}"
         chat = LlmChat(
-            api_key=OPENAI_API_KEY,
+            api_key=LLM_API_KEY,
             session_id=session_id,
             system_message=get_bro_system_prompt(bro_name)
-        ).with_model("openai", "gpt-4o")
+        ).with_model(LLM_PROVIDER, LLM_MODEL)
         
         user_message = UserMessage(text=message)
         response = await chat.send_message(user_message)
@@ -132,10 +134,10 @@ Make it practical and achievable. Include breaks and be specific about what they
 
         session_id = f"timetable_{user_id}"
         chat = LlmChat(
-            api_key=OPENAI_API_KEY,
+            api_key=LLM_API_KEY,
             session_id=session_id,
             system_message=get_bro_system_prompt(bro_name)
-        ).with_model("openai", "gpt-4o")
+        ).with_model(LLM_PROVIDER, LLM_MODEL)
         
         user_message = UserMessage(text=timetable_prompt)
         response = await chat.send_message(user_message)
