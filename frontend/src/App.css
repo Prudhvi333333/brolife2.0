@@ -1281,23 +1281,23 @@ body {
 }
 
 .timeline-block.morning {
-  border-left-color: #fbbf24;
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(255, 255, 255, 0.05));
+  border-left-color: var(--morning-color);
+  background: linear-gradient(135deg, rgba(6, 214, 160, 0.1), rgba(255, 255, 255, 0.05));
 }
 
 .timeline-block.afternoon {
-  border-left-color: #f59e0b;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(255, 255, 255, 0.05));
+  border-left-color: var(--afternoon-color);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(255, 255, 255, 0.05));
 }
 
 .timeline-block.evening {
-  border-left-color: #8b5cf6;
+  border-left-color: var(--evening-color);
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(255, 255, 255, 0.05));
 }
 
 .timeline-block.night {
-  border-left-color: #4ecdc4;
-  background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 255, 255, 0.05));
+  border-left-color: var(--night-color);
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(255, 255, 255, 0.05));
 }
 
 .block-header {
