@@ -51,8 +51,8 @@ body {
 
 /* Header */
 .app-header {
-  background: linear-gradient(90deg, #1a1a1c 0%, #2a2a2e 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--gradient-card);
+  border-bottom: 1px solid var(--border-color);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -60,12 +60,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  backdrop-filter: blur(20px);
 }
 
 .app-title h1 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -73,8 +74,30 @@ body {
 
 .subtitle {
   font-size: 11px;
-  color: #888;
+  color: var(--text-muted);
   font-weight: 400;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feedback-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--accent-primary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.feedback-btn:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--accent-primary);
 }
 
 .profile-icon {
