@@ -40,13 +40,67 @@ body {
   width: 100%;
   max-width: 430px;
   height: 100vh;
-  background: rgba(16, 16, 18, 0.95);
+  background: var(--gradient-card);
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   border-radius: 0;
   overflow: hidden;
   position: relative;
+  border: 1px solid var(--border-color);
+}
+
+/* Updated buttons and cards */
+.generate-timetable-btn, .timetable-btn {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.generate-timetable-btn:hover:not(:disabled), .timetable-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.toggle-view-btn {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-view-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+}
+
+.save-daily-btn {
+  width: 100%;
+  background: var(--gradient-success);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-daily-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 255, 135, 0.4);
 }
 
 /* Header */
