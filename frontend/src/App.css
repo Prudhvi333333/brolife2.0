@@ -1291,21 +1291,126 @@ body {
   align-items: center;
   gap: 12px;
   padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   border-radius: 6px;
+  border: 1px solid var(--border-color);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.activity:hover {
+  background: rgba(0, 212, 255, 0.05);
+  border-color: var(--accent-primary);
+}
+
+.activity.editing {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--accent-primary);
 }
 
 .activity .time {
   font-size: 11px;
-  color: #4ecdc4;
+  color: var(--accent-primary);
   font-weight: 600;
   min-width: 40px;
 }
 
 .activity .task {
   font-size: 12px;
-  color: #e1e1e3;
+  color: var(--text-primary);
   flex: 1;
+}
+
+.edit-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+.activity:hover .edit-icon {
+  opacity: 1;
+}
+
+.edit-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent-primary);
+}
+
+.edit-input {
+  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--accent-primary);
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.save-btn, .cancel-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.save-btn {
+  color: var(--accent-success);
+}
+
+.save-btn:hover {
+  background: rgba(0, 255, 135, 0.2);
+}
+
+.cancel-btn {
+  color: var(--accent-secondary);
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 107, 157, 0.2);
+}
+
+/* Feedback Modal */
+.feedback-modal {
+  background: var(--secondary-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.submit-feedback-btn {
+  width: 100%;
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-feedback-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
 
 /* Medication Toggle Improvement */
