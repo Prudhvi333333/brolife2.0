@@ -1,8 +1,51 @@
 import React, { useState } from 'react';
 import DailyLogger from './DailyLogger';
 
+const EditableTimeBlock = ({ time, task, onSave }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTask, setEditedTask] = useState(task);
+
+  const handleSave = () => {
+    onSave(time, editedTask);
+    setIsEditing(false);
+  };
+
+  if (isEditing) {
+    return (
+      <div className="activity editing">
+        <span className="time">{time}</span>
+        <input 
+          type="text" 
+          value={editedTask} 
+          onChange={(e) => setEditedTask(e.target.value)}
+          className="edit-input"
+          autoFocus
+        />
+        <div className="edit-actions">
+          <button onClick={handleSave} className="save-btn">✓</button>
+          <button onClick={() => setIsEditing(false)} className="cancel-btn">✕</button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="activity">
+      <span className="time">{time}</span>
+      <span className="task">{editedTask}</span>
+      <button 
+        className="edit-icon" 
+        onClick={() => setIsEditing(true)}
+      >
+        ✏️
+      </button>
+    </div>
+  );
+};
+
 const TimetableCard = ({ timetable, onViewFullSchedule, onRegenerate, isLoading = false, isPreview = false }) => {
   const [showLogger, setShowLogger] = useState(false);
+  const [editedTasks, setEditedTasks] = useState({});
   
   if (!timetable) {
     return (
