@@ -46,6 +46,6 @@ export const useTimetable = () => {
     error,
     generateTimetable,
     getTimetables,
-    setTimetable
+    setTimetable: (data) => setTimetable(data)
   };
 };
