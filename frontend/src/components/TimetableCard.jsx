@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TimetableCard = ({ timetable, onViewFullSchedule, onRegenerate, isLoading = false, isPreview = false }) => {
-  if (!timetable) {
+  if (!timetable || (timetable.error && !timetable.schedule_text)) {
     return (
       <div className="no-timetable">
         <div className="empty-state">
