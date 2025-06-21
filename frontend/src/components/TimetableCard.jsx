@@ -207,18 +207,21 @@ const TimetableCard = ({ timetable, onViewFullSchedule, onRegenerate, isLoading 
                 </div>
               </div>
               <div className="block-activities">
-                <div className="activity">
-                  <span className="time">17:00</span>
-                  <span className="task">Exercise & health</span>
-                </div>
-                <div className="activity">
-                  <span className="time">19:00</span>
-                  <span className="task">Dinner & family</span>
-                </div>
-                <div className="activity">
-                  <span className="time">20:00</span>
-                  <span className="task">Relaxation</span>
-                </div>
+                <EditableTimeBlock 
+                  time="17:00" 
+                  task={getTaskText("17:00", "Exercise & health")} 
+                  onSave={handleTaskEdit}
+                />
+                <EditableTimeBlock 
+                  time="19:00" 
+                  task={getTaskText("19:00", "Dinner & family")} 
+                  onSave={handleTaskEdit}
+                />
+                <EditableTimeBlock 
+                  time="20:00" 
+                  task={getTaskText("20:00", "Relaxation")} 
+                  onSave={handleTaskEdit}
+                />
               </div>
             </div>
 
