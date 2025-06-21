@@ -80,6 +80,8 @@ const TimetableCard = ({ timetable, onViewFullSchedule, onRegenerate, isLoading 
           </div>
         </div>
       </div>
+
+      <DailyLogger />
     </div>
   );
 };
