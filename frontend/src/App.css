@@ -1,7 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Modern Color Palette & Variables */
+:root {
+  --primary-bg: #0f0f11;
+  --secondary-bg: #1a1a1d;
+  --card-bg: rgba(30, 30, 34, 0.8);
+  --accent-primary: #00d4ff;
+  --accent-secondary: #ff6b9d;
+  --accent-success: #00ff87;
+  --accent-warning: #ffb800;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a5;
+  --text-muted: #6b6b70;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --gradient-primary: linear-gradient(135deg, #00d4ff, #ff6b9d);
+  --gradient-success: linear-gradient(135deg, #00ff87, #00d4ff);
+  --gradient-card: linear-gradient(145deg, rgba(30, 30, 34, 0.9), rgba(20, 20, 24, 0.9));
 }
 
 body {
@@ -10,14 +22,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0a0a0b;
-  color: #e1e1e3;
+  background: var(--primary-bg);
+  color: var(--text-primary);
   overflow-x: hidden;
 }
 
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0b 0%, #1a1a1c 100%);
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
