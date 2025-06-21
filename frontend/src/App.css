@@ -1147,6 +1147,23 @@ body {
   color: #e1e1e3;
   font-size: 12px;
   margin-bottom: 8px;
+  position: relative;
+  z-index: 10;
+}
+
+.logger-card select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e1e1e3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.logger-card select option {
+  background: #1a1a1c;
+  color: #e1e1e3;
+  padding: 8px;
 }
 
 .logger-card select:focus,
