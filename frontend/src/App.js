@@ -308,6 +308,49 @@ function App() {
           </div>
         </div>
       )}
+      {/* Feedback Modal */}
+      {showFeedback && (
+        <div className="modal-overlay" onClick={() => setShowFeedback(false)}>
+          <div className="feedback-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>💬 Share Your Feedback</h2>
+              <button className="close-btn" onClick={() => setShowFeedback(false)}>×</button>
+            </div>
+            
+            <div className="modal-content">
+              <div className="form-group">
+                <label>Name (optional)</label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="form-input"
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Your feedback *</label>
+                <textarea
+                  placeholder="Tell us what you think about Brolife, what features you'd like, or any bugs you've found..."
+                  className="form-textarea"
+                  rows="5"
+                  required
+                />
+              </div>
+
+              <button 
+                className="submit-feedback-btn"
+                onClick={() => {
+                  console.log('Feedback submitted!');
+                  setShowFeedback(false);
+                  // Could send to API in future
+                }}
+              >
+                🚀 Submit Feedback
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
