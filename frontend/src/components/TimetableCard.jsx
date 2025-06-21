@@ -95,7 +95,7 @@ const DailyLogger = () => {
 const TimetableCard = ({ timetable, onViewFullSchedule, onRegenerate, isLoading = false, isPreview = false }) => {
   console.log('TimetableCard render:', { timetable, isPreview, isLoading });
   
-  if (!timetable || (timetable.error && !timetable.schedule_text)) {
+  if (!timetable) {
     return (
       <div className="no-timetable">
         <div className="empty-state">
