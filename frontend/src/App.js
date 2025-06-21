@@ -15,6 +15,7 @@ import { useUser, useTimetable, useChat } from './hooks';
 function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [showSetup, setShowSetup] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
   const [expandedTracker, setExpandedTracker] = useState(null);
   const [inputMessage, setInputMessage] = useState('');
   const [goals, setGoals] = useState('');
