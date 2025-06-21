@@ -228,9 +228,14 @@ function App() {
             <h1>💪 Brolife</h1>
             <span className="subtitle">Your AI productivity bro</span>
           </div>
-          <div className="profile-icon" onClick={() => setActiveTab('profile')}>
-            <span className="bro-name">{user.bro_name}</span>
-            <div className="avatar-small">🤖</div>
+          <div className="header-right">
+            <button className="feedback-btn" onClick={() => setShowFeedback(true)}>
+              💬 Feedback
+            </button>
+            <div className="profile-icon" onClick={() => setActiveTab('profile')}>
+              <span className="bro-name">{user.bro_name}</span>
+              <div className="avatar-small">🤖</div>
+            </div>
           </div>
         </div>
 
