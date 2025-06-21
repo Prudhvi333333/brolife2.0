@@ -3,16 +3,21 @@
   --primary-bg: #0f0f11;
   --secondary-bg: #1a1a1d;
   --card-bg: rgba(30, 30, 34, 0.8);
-  --accent-primary: #00d4ff;
-  --accent-secondary: #ff6b9d;
-  --accent-success: #00ff87;
-  --accent-warning: #ffb800;
+  --accent-primary: #14b8a6; /* Teal */
+  --accent-secondary: #f97316; /* Coral */
+  --accent-tertiary: #8b5cf6; /* Soft violet */
+  --accent-success: #06d6a0; /* Mint green */
+  --accent-warning: #fbbf24; /* Vibrant yellow */
+  --morning-color: #06d6a0; /* Mint instead of dull yellow */
+  --afternoon-color: #f97316; /* Coral */
+  --evening-color: #8b5cf6; /* Violet */
+  --night-color: #14b8a6; /* Teal */
   --text-primary: #ffffff;
   --text-secondary: #a0a0a5;
   --text-muted: #6b6b70;
   --border-color: rgba(255, 255, 255, 0.1);
-  --gradient-primary: linear-gradient(135deg, #00d4ff, #ff6b9d);
-  --gradient-success: linear-gradient(135deg, #00ff87, #00d4ff);
+  --gradient-primary: linear-gradient(135deg, #14b8a6, #8b5cf6);
+  --gradient-success: linear-gradient(135deg, #06d6a0, #14b8a6);
   --gradient-card: linear-gradient(145deg, rgba(30, 30, 34, 0.9), rgba(20, 20, 24, 0.9));
 }
 
