@@ -46,6 +46,20 @@ const EditableTimeBlock = ({ time, task, onSave }) => {
 const TimetableCard = ({ timetable, onViewFullSchedule, onRegenerate, isLoading = false, isPreview = false }) => {
   const [showLogger, setShowLogger] = useState(false);
   const [editedTasks, setEditedTasks] = useState({});
+  const handleTaskEdit = (time, newTask) => {
+    setEditedTasks(prev => ({
+      ...prev,
+      [time]: newTask
+    }));
+    // Save to localStorage
+    const savedTasks = JSON.parse(localStorage.getItem('editedTasks') || '{}');
+    savedTasks[time] = newTask;
+    localStorage.setItem('editedTasks', JSON.stringify(savedTasks));
+  };
+
+  const getTaskText = (time, defaultTask) => {
+    return editedTasks[time] || defaultTask;
+  };
   
   if (!timetable) {
     return (
