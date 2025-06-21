@@ -1084,123 +1084,221 @@ body {
   box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
 }
 
-/* Schedule Blocks Styling */
-.schedule-blocks {
+/* Modern Schedule Layout */
+.timetable-header {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
+  padding: 0 4px;
 }
 
-.time-block {
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-view-btn {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-view-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.content-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.schedule-section, .logger-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.4s ease;
+}
+
+.schedule-section.visible, .logger-section.visible {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.schedule-section.hidden, .logger-section.hidden {
+  opacity: 0;
+  transform: translateX(-20px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.date-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.date-info h3 {
+  font-size: 18px;
+  color: #e1e1e3;
+  margin-bottom: 8px;
+}
+
+.night-focus-badge {
+  display: inline-block;
+  background: rgba(78, 205, 196, 0.2);
+  color: #4ecdc4;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.night-focus-badge span {
+  color: #ff6b6b;
+}
+
+/* Timeline Style Schedule */
+.schedule-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timeline-block {
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 16px;
   border-left: 4px solid;
-  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
 }
 
-.morning-block {
+.timeline-block:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(2px);
+}
+
+.timeline-block.morning {
   border-left-color: #fbbf24;
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(255, 255, 255, 0.05));
 }
 
-.afternoon-block {
+.timeline-block.afternoon {
   border-left-color: #f59e0b;
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(255, 255, 255, 0.05));
 }
 
-.evening-block {
+.timeline-block.evening {
   border-left-color: #8b5cf6;
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(255, 255, 255, 0.05));
 }
 
-.night-block {
+.timeline-block.night {
   border-left-color: #4ecdc4;
   background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 255, 255, 0.05));
 }
 
-.time-header {
+.block-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 12px;
   margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.time-range {
-  font-weight: 600;
+.block-icon {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.block-info {
+  flex: 1;
+}
+
+.block-title {
+  display: block;
   font-size: 14px;
+  font-weight: 600;
   color: #e1e1e3;
+  margin-bottom: 2px;
 }
 
-.block-type {
-  font-size: 12px;
+.block-time {
+  display: block;
+  font-size: 11px;
   color: #888;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.activities {
+.block-activities {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-left: 52px;
 }
 
-.activity-item {
+.activity {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 12px;
   padding: 8px 12px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
 }
 
-.activity-time {
+.activity .time {
   font-size: 11px;
   color: #4ecdc4;
   font-weight: 600;
-  min-width: 80px;
+  min-width: 40px;
 }
 
-.activity-name {
+.activity .task {
   font-size: 12px;
   color: #e1e1e3;
   flex: 1;
-  margin-left: 12px;
 }
 
-.ai-schedule-note {
-  background: rgba(78, 205, 196, 0.1);
-  border-radius: 12px;
-  padding: 16px;
-  border-left: 3px solid #4ecdc4;
-  margin-top: 16px;
-}
-
-.ai-note-header {
-  font-size: 12px;
-  color: #4ecdc4;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.ai-note-text {
+/* Medication Toggle Improvement */
+.medication-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 12px;
   color: #e1e1e3;
-  line-height: 1.4;
+}
+
+.toggle-switch {
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  display: none;
 }
 
 @media (max-width: 480px) {
-  .activity-item {
+  .block-activities {
+    margin-left: 0;
+  }
+  
+  .activity {
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
-  }
-  
-  .activity-name {
-    margin-left: 0;
   }
 }
 .daily-logger {
