@@ -23,7 +23,7 @@ function App() {
 
   // Custom hooks
   const { user, updateUser } = useUser();
-  const { timetable, generateTimetable, loading: timetableLoading } = useTimetable();
+  const { timetable, generateTimetable, loading: timetableLoading, setTimetable } = useTimetable();
   const { messages, sendMessage, addMessage, isLoading: chatLoading } = useChat();
 
   // Sample tracker data (in real app, this would come from API)
