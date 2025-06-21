@@ -121,15 +121,17 @@ const DailyLogger = () => {
 
         <div className="logger-card">
           <h4>💊 Medication Tracker</h4>
-          <label className="toggle-switch">
-            <input 
-              type="checkbox" 
-              checked={medsTaken} 
-              onChange={(e) => setMedsTaken(e.target.checked)} 
-            />
-            <span className="toggle-slider"></span>
-            Did you take your meds?
-          </label>
+          <div className="medication-toggle">
+            <span>Did you take your meds?</span>
+            <label className="toggle-switch">
+              <input 
+                type="checkbox" 
+                checked={medsTaken} 
+                onChange={(e) => setMedsTaken(e.target.checked)} 
+              />
+              <span className="toggle-slider"></span>
+            </label>
+          </div>
         </div>
       </div>
 
