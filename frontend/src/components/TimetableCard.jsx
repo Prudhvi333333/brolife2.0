@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DailyLogger from './DailyLogger';
 
 const TimetableCard = ({ timetable, onViewFullSchedule, onRegenerate, isLoading = false, isPreview = false }) => {
-  console.log('TimetableCard render:', { timetable, isPreview, isLoading });
+  const [showLogger, setShowLogger] = useState(false);
   
   if (!timetable) {
     return (
