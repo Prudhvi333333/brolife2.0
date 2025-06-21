@@ -66,15 +66,44 @@ function App() {
 
     try {
       const data = await generateTimetable(user.goals, user.preferences, user.user_id);
-      addMessage({ 
-        type: 'bot', 
-        content: "Your personalized timetable is ready! Check it out in the Timetable tab 📅",
-        timetable: data.timetable
-      });
+      
+      // Create a mock timetable if API fails but we got some response
+      if (data.timetable && data.timetable.error) {
+        // Create a fallback timetable for demo purposes
+        const fallbackTimetable = {
+          date: new Date().toISOString().split('T')[0],
+          day: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
+          night_focus: new Date().getDay() % 2 === 0 ? "Health & Wellness" : "Side Hustle",
+          schedule_text: `Here's your personalized schedule for today!\n\n🌅 Morning (7:30-12:00):\n- Focus work on: ${user.goals[0] || 'your main goal'}\n- 25-minute focused blocks with 5-min breaks\n- Deep work session\n\n☀️ Afternoon (12:00-17:00):\n- Continue project work\n- Lunch break (12:30-13:30)\n- Admin tasks and planning\n\n🌆 Evening (17:00-21:00):\n- Personal time and exercise\n- Dinner and relaxation\n- Light reading or hobby time\n\n🌙 Night (21:00-00:30):\n- ${new Date().getDay() % 2 === 0 ? "Health focus: yoga, meditation, early sleep prep" : "Side hustle: work on personal projects"}\n\nYou got this! 💪`,
+          generated_at: new Date().toISOString()
+        };
+        setTimetable(fallbackTimetable);
+        
+        addMessage({ 
+          type: 'bot', 
+          content: "I generated a basic timetable for you! While my AI brain is having a moment, here's a solid schedule based on your goals. Check it out in the Timetable tab! 📅"
+        });
+      } else {
+        addMessage({ 
+          type: 'bot', 
+          content: "Your personalized timetable is ready! Check it out in the Timetable tab 📅",
+          timetable: data.timetable
+        });
+      }
     } catch (error) {
+      // Create emergency fallback timetable
+      const emergencyTimetable = {
+        date: new Date().toISOString().split('T')[0],
+        day: new Date().toLocaleDateString('en-US', { weekday: 'long' }),
+        night_focus: "Productivity Focus",
+        schedule_text: `Emergency productivity schedule! 🚀\n\n🌅 7:30-12:00: Morning Focus\n- Work on your most important goal\n- 90-minute deep work blocks\n\n☀️ 12:00-17:00: Afternoon Tasks\n- Continue momentum from morning\n- Handle admin and planning\n\n🌆 17:00-21:00: Personal Time\n- Exercise, meals, relationships\n- Recharge for tomorrow\n\n🌙 21:00-00:30: Evening Wind-down\n- Light work or personal projects\n- Prepare for restful sleep\n\nKeep grinding! 💪`,
+        generated_at: new Date().toISOString()
+      };
+      setTimetable(emergencyTimetable);
+      
       addMessage({ 
         type: 'bot', 
-        content: "Couldn't generate your timetable right now, bro. Let me try again in a bit!"
+        content: "I created a backup schedule for you! My AI is having a moment, but I won't leave you hanging. Check your timetable! 📅"
       });
     }
   };
